@@ -9,15 +9,30 @@ import { useContext } from 'react';
 import useMoviesByCategory from '../Hooks/useMoviesByCategory';
 import Rating from './Rating';
 
-export default function CardMovie({ id, title, imagen, puntuacion, estreno, ratin, genres }) {
+export default function CardMovie({ id, title, imagen, puntuacion, estreno, removeFunction }) {
 
   // @ Recibe información del hook useMoviesByCategory
   return (
-    <Card>
-      <CardActionArea style={{ display: "flex", width: "100%", flexGrow: "1", objectFit: "cover", justifyContent: "center", transition: "0.5s easy" }}>
+    <Card
+      sx={{
+        width: " 88%",
+        height: "350px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        justifyItems: "center",
+        alignItems: "center",
+        marginTop: "6%"
+      }}>
+      <CardActionArea
+        style={{
+          width: "100%",
+          flexGrow: "2", objectFit: "cover",
+          justifyContent: "center", transition: "0.5s easy"
+        }}>
         <CardMedia
           component="img"
-          sx={{ width: "250px", alignContent: "center", height: "280px", display: "flex", flexDirection: "column" }}
+          sx={{ width: "282px", height: "200px" }}
           image={`https://image.tmdb.org/t/p/w1280${imagen}`}
           alt={title}
         />
@@ -25,47 +40,64 @@ export default function CardMovie({ id, title, imagen, puntuacion, estreno, rati
       <CardContent>
         <Typography gutterBottom variant="h3" component="div" noWrap
           sx={{
-            fontSize: "20px",
-            textAlign: 'center',
+            fontSize: "16px",
+            fontWeight: "bold",
+            textAlign: "center",
             overflow: 'hidden',
-            width: "250px",
-
+            margin: "0",
+            maxWidth: "200px",
+            paddingLeft: "18px",
+            paddingRight: "18px"
           }}>
           {title}
         </Typography>
         <Typography gutterBottom variant="h6" component="div" noWrap
           sx={{
-            fontSize: "17px",
+            fontSize: "15px",
             textAlign: 'center',
-            overflow: 'hidden',
-            width: "250px",
+            margin: "0"
           }}>
           Estreno: {estreno}
         </Typography>
         <Typography gutterBottom variant="h6" component="div" noWrap
           sx={{
-            fontSize: "17px",
+            fontSize: "15px",
             textAlign: 'center',
             overflow: 'hidden',
             width: "250px",
+            margin: "0"
           }}>
           Puntuación: {puntuacion}
         </Typography>
-        <Rating votes={ratin} />
       </CardContent>
-      <CardActions sx={{ display: "flex", justifyContent: "center" }} >
+      <CardActions sx={{ marginTop: "0", display: "flex", justifyContent: "center" }} >
         <Link to={`/movie/${id}`} >
           <Button style={{
-            marginBottom: "15px",
-            fontSize: "16px",
+            marginBottom: "5px",
+            margin: "0",
+            fontSize: "14px",
             textShadow: "1px 1px 5px rgba(0, 0, 0, 0.381)",
             color: "white",
             background: "#171717CC",
-            width: "150px"
+            width: "110px"
           }}>
             Ver mas...
           </Button>
         </Link>
+        {
+          removeFunction && (<Button onClick={() => removeFunction(id)} style={{
+            marginBottom: "5px",
+            marginLeft: "10%",
+            fontSize: "14px",
+            textShadow: "1px 1px 5px rgba(0, 0, 0, 0.381)",
+            color: "white",
+            background: "#171717CC",
+            width: "110px",
+            marginTop: "0"
+          }}>
+            Eliminar
+          </Button>)
+        }
       </CardActions>
     </Card>
   );

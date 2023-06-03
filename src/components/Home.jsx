@@ -9,7 +9,9 @@ export default function Homes() {
 		< div
 			style={{
 				maxWidth: '100vw',
+				Height: '100px',
 				color: '#fff',
+				backgroundColor: '#000018'
 			}
 			}>
 			<div>

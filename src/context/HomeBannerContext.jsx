@@ -21,6 +21,7 @@ const HomeBannerContextProvider = ({ children }) => {
          } catch (error) {
             setError(error)
          } finally { setLoading(false) }
+         console.log(request)
       };
 
       load()

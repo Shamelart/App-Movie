@@ -8,7 +8,7 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 
-const pages = [["Home"], ["En Cartelera", "now_playing"], ["Mejor Valoradas", "top_rated"], ["Buscar", "search"]];
+const pages = [["Home"], ["En Cartelera", "now_playing"], ["Mejor Valoradas", "top_rated"], ["Play List", "playList"], ["Buscar", "search"]];
 
 function NavBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -44,6 +44,9 @@ function NavBar() {
               switch (page[0]) {
                 case "Home":
                   path = "/"
+                  break;
+                case "Play List":
+                  path = "/playList"
                   break;
                 case "Buscar":
                   path = "/search"

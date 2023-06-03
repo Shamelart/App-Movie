@@ -23,8 +23,7 @@ export default function MoviesByCategory() {
               title={movie.title}
               puntuacion={movie.vote_average}
               estreno={movie.release_date}
-              ratin={movie.vote_average}
-           
+              ratin={movie.vote_average}        
             />
           </Link>
         </Grid>

@@ -8,19 +8,19 @@ export default function Search() {
   const { movies, loading, error, handleChange } = useSearchMovie();
 
   return (
-    <Container maxWidth="false" sx={{ pt: 12, width: 1, minHeight: "90vh", }}>
-      <Box sx={{ width: '50%', p: 2, minHeight: "25vh", bgcolor: "white" }}>
+    <Container maxWidth="false" sx={{ pt: 13, width: 1, minHeight: "90vh" }}>
+      <Box sx={{ width: "28%", height: "50px", backgroundColor: "whitesmoke" }}>
         <TextField onChange={(e) => handleChange(e)}
           fullWidth label="BUSCAR" variant="outlined"
           id="fullWidth" sx={{
-            color: 'primary',
+            color: 'white',
             borderRadius: '10px'
           }} />
       </Box>
       <Grid
         container
         spacing={1}
-        sx={{ paddingLeft: "5%", width: "100%", display: "flex" }}
+        sx={{ paddingLeft: "5%", width: "100%", display: "flex", flexWrap: "wrap" }}
       >
         {loading ? (
           <></>
@@ -31,6 +31,8 @@ export default function Search() {
                 id={movie.id}
                 title={movie.title}
                 imagen={movie.backdrop_path}
+                puntuacion={movie.overview}
+                estreno={movie.release_date}
               />
             </Grid>
           ))

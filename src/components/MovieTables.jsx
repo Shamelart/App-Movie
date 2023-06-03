@@ -47,7 +47,7 @@ export default function CustomizedTables({ type, title }) {
 						<StyledTableCell sx={{ textAlign: "center", fontSize: "1.3em" }}>{title}</StyledTableCell>
 					</TableRow>
 				</TableHead>
-				<ul style={{ maxHeight: "600px", overflow: "auto" }}>
+				<ul style={{ maxHeight: "650px", overflow: "auto" }}>
 					{movie.map((movie) => (
 						<li key={movie.id} style={{ padding: "10px" }}>
 							<Container component="div" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>

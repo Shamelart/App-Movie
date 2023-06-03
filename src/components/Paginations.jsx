@@ -6,8 +6,7 @@ export default function Paginations({ totalPage, handleActualPage }) {
 
   return (
     <Stack spacing={2}>
-      <Pagination count={totalPage} shape="rounded" onChange={(_, page) => { handleActualPage(page) }} />
-
+      <Pagination sx={{ backgroundColor: "whitesmoke", marginTop: "40px" }} count={totalPage} shape="rounded" onChange={(_, page) => { handleActualPage(page) }} />
     </Stack>
 
   );
